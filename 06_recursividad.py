@@ -10,23 +10,37 @@
  *   sucesión de Fibonacci (la función recibe la posición).
 """
 
-def function_recur(number):
+def countdown(number):
     if number >= 0:
         print(number)    
-        function_recur(number - 1)
+        countdown(number - 1)
 
 
-def factorial(num):
+def factorial(number):
     if number < 0:
-        print("Los numeros negativos no tienen factorial")
-    elif num <= 1:
+        print("Los números negativos no tienen factorial")
+    elif number <= 1:
         return 1
     else:
-        return num * factorial(num - 1)
+        return number * factorial(number - 1)
 
 
-number = int(input("Introduzca un numero para imprimir,usando\nrecursividad, desde ese numero hasta '0': "))
-function_recur(number)
+def fibonacci(position):
+    if position == 0:
+        print("La posición ha de ser mayor que '0'")
+    elif position == 1:
+        return 0
+    elif position == 2:
+        return 1
+    else:
+        return fibonacci(position - 1) + fibonacci(position - 2)
 
-number2 = int(input("Introduzca un numero para calcular su factorial: "))
-print(f"El factorial de {number2} es {factorial(number2)}")
+
+number = int(input("Introduzca un número para imprimir, usando\nrecursividad, desde ese número hasta '0': "))
+countdown(number)
+
+number = int(input("Introduzca un número para calcular su factorial: "))
+print(f"El factorial de {number} es {factorial(number)}")
+
+number = int(input("Introduzca una posición para calcular su valor en la serie de Fibonacci: "))
+print(f"El valor de la posición {number} en la serie es {fibonacci(number)}")
